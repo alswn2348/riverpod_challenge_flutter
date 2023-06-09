@@ -27,10 +27,19 @@ class StateProviderScreen extends ConsumerWidget {
               onPressed: () {
                 ref
                     .read(numberProvider.notifier)
-                    .update((state) => state + 1); //update 하는 방법
+                    .update((state) => state + 1); //update 하는 방법 1
               },
               child: const Text(
                 'UP',
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                ref.read(numberProvider.notifier).state =
+                    ref.read(numberProvider.notifier).state - 1;
+              }, //update 하는 방법 2
+              child: const Text(
+                'DOWN',
               ),
             ),
             ElevatedButton(
