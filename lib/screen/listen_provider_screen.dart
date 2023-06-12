@@ -19,21 +19,24 @@ class _ListenProviderScreenState extends ConsumerState<ListenProviderScreen>
     super.initState();
 
     controller = TabController(
-      length: 10,
-      vsync: this,
-    );
+        length: 10,
+        vsync: this,
+        //초기값을 provider 에서 받기
+        initialIndex: ref.read(listenProvider));
   }
 
   @override
   Widget build(BuildContext context) {
     ref.listen<int>(listenProvider, (previous, next) {
+      //state 값이 변경 되었을때
       if (previous != next) {
+        //화면 이동
         controller.animateTo(next);
       }
     });
 
     return DefaultLayout(
-      title: "StateNotifireProvider",
+      title: "ListenProviderScreen",
       body: TabBarView(
         //스크롤 금지
         physics: const NeverScrollableScrollPhysics(),
@@ -46,6 +49,7 @@ class _ListenProviderScreenState extends ConsumerState<ListenProviderScreen>
               Text(
                 index.toString(),
               ),
+              //state 값 증가
               ElevatedButton(
                 onPressed: () {
                   ref
@@ -54,6 +58,7 @@ class _ListenProviderScreenState extends ConsumerState<ListenProviderScreen>
                 },
                 child: const Text('다음'),
               ),
+              //state 값 감소
               ElevatedButton(
                 onPressed: () {
                   ref
