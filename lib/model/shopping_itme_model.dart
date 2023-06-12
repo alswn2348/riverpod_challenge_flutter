@@ -9,4 +9,18 @@ class ShoppingItemModel {
     required this.isForMen,
     required this.hasJewel,
   });
+
+  ShoppingItemModel copyWith({
+    String? name,
+    int? quantity,
+    bool? isForMen,
+    bool? hasJewel,
+  }) {
+    return ShoppingItemModel(
+      name: name ?? this.name,
+      quantity: quantity ?? this.quantity,
+      isForMen: isForMen ?? this.isForMen,
+      hasJewel: hasJewel ?? this.hasJewel,
+    );
+  }
 }

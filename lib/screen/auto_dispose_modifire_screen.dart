@@ -11,7 +11,7 @@ class AutoDisposeModifireScreen extends ConsumerWidget {
     final state = ref.watch(autoDisposeModifireProvider);
 
     return DefaultLayout(
-      title: "FamilyModifreScreen",
+      title: "AutoDisposeModifireScreen",
       body: Column(
         children: [
           state.when(
