@@ -4,6 +4,7 @@ import 'package:riverpod_challenge_flutter/screen/auto_dispose_modifire_screen.d
 import 'package:riverpod_challenge_flutter/screen/family_modifire_screen.dart';
 import 'package:riverpod_challenge_flutter/screen/futura_provider_screen.dart';
 import 'package:riverpod_challenge_flutter/screen/listen_provider_screen.dart';
+import 'package:riverpod_challenge_flutter/screen/provider_screen.dart';
 import 'package:riverpod_challenge_flutter/screen/select_provider_screen.dart';
 import 'package:riverpod_challenge_flutter/screen/state_notifire_screen.dart';
 import 'package:riverpod_challenge_flutter/screen/state_provider_screen.dart';
@@ -97,6 +98,16 @@ class HomeScreen extends StatelessWidget {
               );
             },
             child: const Text('SelectProviderScreen'),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (_) => const ProviderScreen(),
+                ),
+              );
+            },
+            child: const Text('ProviderScreen'),
           ),
         ],
       ),
